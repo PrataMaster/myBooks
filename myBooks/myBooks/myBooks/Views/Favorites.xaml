@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:myBooks.CustomRenderer"
+             mc:Ignorable="d"
+             x:Class="myBooks.Views.Favorites">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <Frame Padding="0">
+                <RelativeLayout>
+                    <BoxView Style="{StaticResource HeaderBox}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>
+                    <Image Source="FBIMG1498515249761.jpg" WidthRequest="160"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=127}"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=16}"/>
+                    <Label Text="Gabriel Dias" TextColor="White" FontSize="Medium"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=150}"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=180}"/>
+                    <ImageButton Source="settings.png" WidthRequest="20" BackgroundColor="Transparent"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=380}"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=8}"/>
+                </RelativeLayout>
+            </Frame>
+            <!--#endregion Header-->
+            <Frame Padding="0" CornerRadius="2" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="Black">
+                <StackLayout Orientation="Horizontal" Padding="0">
+                    <local:MyButton Text="MyBooks" Style="{StaticResource TabMenu}" Command="{Binding MybooksCommand}" x:Name="aloaloaloaloaloalo"/>
+                    <local:MyButton Text="Desejos" Style="{StaticResource TabMenu}"/>
+                    <local:MyButton Text="Favoritos" Style="{StaticResource TabMenu}"/>
+                </StackLayout>
+            </Frame>
+            <!--#endregion TabMenus-->
+            <Frame Padding="0" HorizontalOptions="FillAndExpand">
+                <ListView ItemsSource="{Binding Livros}"
+                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=280}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}"/>
+                                    <Label Text="{Binding Genre}"/>
+                                    <Label Text="{Binding Year}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <!--#endregion ListView-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

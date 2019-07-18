@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="myBooks.Views.SignUp"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Margin="0,80,0,80" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <ContentView>
+                    <Image Source="myBooksLogo.png" VerticalOptions="Center" HeightRequest="64"/>
+                </ContentView>
+            </StackLayout>
+            <!--endregion myBooks Logo-->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Button BackgroundColor="Transparent" BorderColor="Transparent" Font="serif" TextColor="#BDBDBD" BorderRadius="5" Text="Sign In" HorizontalOptions="CenterAndExpand" Command="{Binding NavigateToSignInCommand}"/>
+                    <BoxView Color="Transparent" HeightRequest="5" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <!--#endregion Tab Sign In-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Button Style="{StaticResource TabButton}"  Text="Sign Up" HorizontalOptions="CenterAndExpand"/>
+                    <BoxView Style="{StaticResource TabBox}" />
+                </StackLayout>
+                <!--#endregion Tab Sign Up-->
+            </StackLayout>
+            <!--#endregion Tab SignIn/Up-->            
+            <StackLayout Padding="40,15" Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="Center">
+                <StackLayout Orientation="Horizontal">
+                    <Button Padding="45,0,0,0" ImageSource="g_32.png" Style="{StaticResource ButtonIndigoA700}" Text="Sign Up with Google" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <!--#endregion Sign Up with Google-->
+                <StackLayout Orientation="Horizontal">
+                    <Button Padding="45,0,0,0" ImageSource="f_32.png" Style="{StaticResource ButtonIndigoA700}" Text="Sign Up with Facebook" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <!--#endregion Sign Up with Facebook-->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

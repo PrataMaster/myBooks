@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="myBooks.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Gray 400">#BDBDBD</Color><!--BDBDBD Gray 400-->
+            <Color x:Key="Indigo A200">#536DFE</Color><!--536DFE Indigo A200-->
+            <Color x:Key="Indigo A700">#304FFE</Color><!--304FFE Indigo A700-->
+            <!--#endregion Global Colors-->
+
+            <Style x:Key="ButtonIndigoA700" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Indigo A700}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="5"/>
+                <Setter Property="Font" Value="Serif"/>
+                <Setter Property="FontSize" Value="Small"/>
+            </Style>
+            <!--#endregion ButtonIndigoA700-->
+
+
+            <Style x:Key="TabButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="serif"/>
+                <Setter Property="TextColor" Value="{StaticResource Indigo A700}"/>
+                <Setter Property="BorderRadius" Value="5"/>
+            </Style>
+            <!--#endregion TabButton Sign In/Up Pages-->
+
+            <Style x:Key="TabMenuButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="serif"/>
+                <Setter Property="TextColor" Value="{StaticResource Indigo A700}"/>
+                <Setter Property="BorderRadius" Value="5"/>
+            </Style>
+            <!--#endregion TabMenuButton MyBooks/WishList/Favs-->
+            <Style x:Key="TabMenuLabel" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="20,0,40,0"/>
+                <Setter Property="FontFamily" Value="serif"/>
+                <Setter Property="TextColor" Value="{StaticResource Indigo A700}"/>
+            </Style>
+            <!--#endregion TabMenuLabel MyBooks/WishList/Favs-->
+
+            <Style x:Key="LinkButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="{StaticResource Indigo A700}"/>
+                <Setter Property="FontFamily" Value="Normal"/>
+                <Setter Property="FontSize" Value="Micro"/>
+            </Style>
+            <!--#endregion LinkButtons-->
+
+            <Style x:Key="TabBox" TargetType="BoxView">
+                <Setter Property="Color" Value="{StaticResource Indigo A200}"/>
+                <Setter Property="HeightRequest" Value="5"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <!--#endregion TabBox Sign In/Up-->
+
+            <Style x:Key="HeaderBox" TargetType="BoxView">
+                <Setter Property="Color" Value="{StaticResource Indigo A700}"/>
+                <Setter Property="HeightRequest" Value="240"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+            </Style>
+            <!--#endregion HeaderBox MyBooks-->
+
+            
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Indigo A700}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <!--#endregion NavigationPageStyle-->
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

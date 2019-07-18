@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:myBooks.CustomRenderer"
+             mc:Ignorable="d"
+             x:Class="myBooks.Views.SignIn"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Margin="0,80,0,80" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <ContentView>
+                    <Image Source="myBooksLogo.png" VerticalOptions="Center" HeightRequest="64"/>
+                </ContentView>
+            </StackLayout>
+            <!--endregion myBooks Logo-->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Button Style="{StaticResource TabButton}" Text="Sign In" HorizontalOptions="CenterAndExpand"/>
+                    <BoxView Style="{StaticResource TabBox}"/>
+                </StackLayout>
+                <!--#endregion Tab Sign In-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Button BackgroundColor="Transparent" BorderColor="Transparent" Font="serif" TextColor="#BDBDBD" BorderRadius="5" Text="Sign Up" HorizontalOptions="CenterAndExpand" Command="{Binding NavigateToSignUpCommand}"/>
+                    <BoxView Color="Transparent" HeightRequest="5" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <!--#endregion Tab Sign Up-->
+            </StackLayout>
+            <!--#endregion Tab SignIn/Up-->
+            <StackLayout Padding="40,15" Orientation="Vertical" HorizontalOptions="Fill" VerticalOptions="Center">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="userIcon.png" WidthRequest="32"/>
+                    <Entry Placeholder="E-Mail" PlaceholderColor="#BDBDBD" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <!--#endregion emailEntry-->
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="passwordIcon.png" WidthRequest="32"/>
+                    <Entry Placeholder="Senha" PlaceholderColor="#BDBDBD" HorizontalOptions="FillAndExpand" IsPassword="True"/>
+                </StackLayout>
+                <!--#endregion passwordEntry-->
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Margin="-8,-15,0,0" HorizontalOptions="FillAndExpand">
+                        <Button  Style="{StaticResource LinkButton}" Text="Não sei minha senha." HorizontalOptions="StartAndExpand"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Button Style="{StaticResource ButtonIndigoA700}" Text="Entrar" HorizontalOptions="End" Command="{Binding NavigateToMyBooksCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+                <!--#endregion Buttons-->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
