@@ -8,27 +8,26 @@ namespace myBooks.ViewModels
 {
     public class SignInViewModel
     {
+        private readonly INavigationService navigationService;
         public ICommand NavigateToSignUpCommand { get; set; }
         public ICommand NavigateToMyBooksCommand { get; set; }
-
-        private readonly INavigationService _navigationService;
 
         public SignInViewModel()
         {
             NavigateToSignUpCommand = new Command(NavigateToSignUp);
             NavigateToMyBooksCommand = new Command(NavigateToMyBooks);
 
-            _navigationService = DependencyService.Get<INavigationService>();
+            navigationService = DependencyService.Get<INavigationService>();
         }
 
         private void NavigateToMyBooks(object obj)
         {
-            _navigationService.NavigateToMyBooks();
+            navigationService.NavigateToMyBooks();
         }
 
         private void NavigateToSignUp()
         {
-            _navigationService.NavigateToSignUp();
+            navigationService.NavigateToSignUp();
         }
 
     }

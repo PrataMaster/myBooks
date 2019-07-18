@@ -1,4 +1,5 @@
-﻿using System;
+﻿using myBooks.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace myBooks.Views
         public Favorites()
         {
             InitializeComponent();
+            BindingContext = new FavoritesViewModel();
         }
     }
 }

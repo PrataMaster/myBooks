@@ -27,14 +27,14 @@
             <!--#endregion Header-->
             <Frame Padding="0" CornerRadius="2" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="Black">
                 <StackLayout Orientation="Horizontal" Padding="0">
-                    <local:MyLabel Text="MyBooks" Style="{StaticResource TabMenuLabel}"/>
-                    <local:MyButton Text="Desejos" Style="{StaticResource TabMenuButton}"/>
-                    <local:MyButton Text="Favoritos" Style="{StaticResource TabMenuButton}"/>
+                    <local:MyButton Text="MyBooks" Style="{StaticResource TabMenuButton}"/>
+                    <local:MyButton Text="Desejos" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToWishListCommand}"/>
+                    <local:MyButton Text="Favoritos" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToFavoritesCommand}"/>
                 </StackLayout>
             </Frame>
             <!--#endregion TabMenus-->
             <Frame Padding="0" HorizontalOptions="FillAndExpand">
-                <ListView ItemsSource="{Binding Livros}"
+                <ListView ItemsSource="{Binding MyBooksList}"
                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=280}">
                     <ListView.ItemTemplate>
                         <DataTemplate >

@@ -1,34 +1,39 @@
 ﻿using myBooks.Models;
 using myBooks.ViewModels.Services;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace myBooks.ViewModels
 {
-    public class MyBooksViewModel : BaseViewModel
+    public class WishListViewModel : BaseViewModel
     {
         private readonly INavigationService navigationService;
-        public ObservableCollection<Livro> MyBooksList { get; set; }
-        public ICommand NavigateToWishListCommand { get; set; }
+        public ICommand NavigateToMyBooksCommand { get; set; }
         public ICommand NavigateToFavoritesCommand { get; set; }
 
-        public MyBooksViewModel()
+        public ObservableCollection<Livro> WishList { get; set; }
+
+        public WishListViewModel()
         {
             navigationService = DependencyService.Get<INavigationService>();
-            NavigateToWishListCommand = new Command(NavigateToWishList);
+            NavigateToMyBooksCommand = new Command(NavigateToMyBooks);
             NavigateToFavoritesCommand = new Command(NavigateToFavorites);
-            MyBooksList = new ObservableCollection<Livro>();
+            WishList = new ObservableCollection<Livro>();
+
             for (int i = 0; i < 30; i++)
             {
-                MyBooksList.Add(new Livro { Title = "Fala Fiote", Genre = "Ah um genero ai", Year = Convert.ToInt16(1990 + i) });
+                WishList.Add(new Livro { Title = "KKKKKK", Genre = "Sei lá", Year = Convert.ToInt16(1990 + i) });
             }
+
         }
 
-        private void NavigateToWishList()
+        private void NavigateToMyBooks()
         {
-            navigationService.NavigateToWishList();
+            navigationService.NavigateToMyBooks();
         }
 
         private void NavigateToFavorites()

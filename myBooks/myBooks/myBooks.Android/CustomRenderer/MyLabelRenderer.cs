@@ -11,14 +11,13 @@ namespace myBooks.Droid.CustomRenderer
     public class MyLabelRenderer : LabelRenderer
     {
         public MyLabelRenderer(Context context) : base(context)
-        {
-
-        }
+        { }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
         {
             base.OnElementChanged(e);
             Control.PaintFlags |= Android.Graphics.PaintFlags.UnderlineText;
+            Control.SetBackgroundColor(Android.Graphics.Color.Maroon);
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)

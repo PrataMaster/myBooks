@@ -8,21 +8,18 @@ using Xamarin.Forms.Platform.Android;
 [assembly: ExportRenderer(typeof(MyButton), typeof(MyButtonRenderer))]
 namespace myBooks.Droid.CustomRenderer
 {
-
     public class MyButtonRenderer : ButtonRenderer
     {
         public MyButtonRenderer(Context context) : base(context)
-        { }
+        {
+        }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Button> e)
         {
             base.OnElementChanged(e);
-            var button = Control;
+            TabMenuOff(Control);
             //Buttons Sign In/Up Pages
-            if (button.Text == "MyBooks" || button.Text == "Desejos" || button.Text == "Favoritos")
-            {
-                TabMenuOff(button);
-            }
+
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -30,18 +27,18 @@ namespace myBooks.Droid.CustomRenderer
             base.OnElementPropertyChanged(sender, e);
         }
 
-        private void TabMenuOn(Android.Widget.Button btn)
+        private void TabMenuOn(Android.Widget.Button Control)
         {
-            btn.SetWidth(346);
-            btn.SetAllCaps(false);
-            btn.PaintFlags |= Android.Graphics.PaintFlags.UnderlineText;
+            Control.SetWidth(346);
+            Control.SetAllCaps(false);
+            Control.PaintFlags |= Android.Graphics.PaintFlags.UnderlineText;
+
         }
 
-        private void TabMenuOff(Android.Widget.Button btn)
+        private void TabMenuOff(Android.Widget.Button Control)
         {
-            btn.SetWidth(346);
-            btn.SetAllCaps(false);
-
+            Control.SetWidth(346);
+            Control.SetAllCaps(false);
         }
     }
 }

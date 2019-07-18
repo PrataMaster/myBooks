@@ -23,5 +23,16 @@ namespace myBooks.Views.Services
         {
             await Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new MyBooks());
         }
+
+        public async Task NavigateToWishList()
+        {
+            
+            await Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new WishList());
+        }
+
+        public async Task NavigateToFavorites()
+        {
+            await Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new Favorites());
+        }
     }
 }
