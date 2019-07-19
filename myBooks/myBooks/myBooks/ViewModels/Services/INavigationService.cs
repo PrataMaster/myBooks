@@ -12,5 +12,6 @@ namespace myBooks.ViewModels.Services
         Task NavigateToMyBooks();
         Task NavigateToWishList();
         Task NavigateToFavorites();
+        Task NavigateToSettings();
     }
 }

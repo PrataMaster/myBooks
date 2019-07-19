@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:myBooks.CustomRenderer"
+             xmlns:local="clr-namespace:myBooks.CustomRenderer"             
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              mc:Ignorable="d"
              x:Class="myBooks.Views.MyBooks"
              NavigationPage.HasNavigationBar="False">
@@ -13,15 +15,20 @@
                 <RelativeLayout>
                     <BoxView Style="{StaticResource HeaderBox}"
                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"/>
-                    <Image Source="FBIMG1498515249761.jpg" WidthRequest="160"
-                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=127}"
-                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=16}"/>
+                    <ffimageloading:CachedImage Source="FBIMG1498515249761.jpg" HeightRequest="160" WidthRequest="160" HorizontalOptions="Center" VerticalOptions="Center" 
+                        LoadingPlaceholder="loading.png" ErrorPlaceholder="error.png" DownsampleToViewSize="true" Aspect="AspectFit" 
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=127}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=16}">
+                        <ffimageloading:CachedImage.Transformations>
+                            <fftransformations:CircleTransformation/>
+                        </ffimageloading:CachedImage.Transformations>
+                    </ffimageloading:CachedImage>
                     <Label Text="Gabriel Dias" TextColor="White" FontSize="Medium"
                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=150}"
                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=180}"/>
-                    <ImageButton Source="settings.png" WidthRequest="20" BackgroundColor="Transparent"
-                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=380}"
-                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=8}"/>
+                    <ImageButton Source="settings.png" WidthRequest="24" BackgroundColor="Transparent" Command="{Binding NavigateToSettingCommand}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=378}"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=6}"/>
                 </RelativeLayout>
             </Frame>
             <!--#endregion Header-->
@@ -34,7 +41,7 @@
             </Frame>
             <!--#endregion TabMenus-->
             <Frame Padding="0" HorizontalOptions="FillAndExpand">
-                <ListView ItemsSource="{Binding MyBooksList}"
+                <ListView ItemsSource="{Binding MyBooks}"
                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=280}">
                     <ListView.ItemTemplate>
                         <DataTemplate >

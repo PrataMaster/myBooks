@@ -34,5 +34,10 @@ namespace myBooks.Views.Services
         {
             await Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new Favorites());
         }
+
+        public async Task NavigateToSettings()
+        {
+            await Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new Settings());
+        }
     }
 }

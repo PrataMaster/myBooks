@@ -12,16 +12,18 @@ namespace myBooks.ViewModels
     public class WishListViewModel : BaseViewModel
     {
         private readonly INavigationService navigationService;
+        public ObservableCollection<Livro> WishList { get; set; }
         public ICommand NavigateToMyBooksCommand { get; set; }
         public ICommand NavigateToFavoritesCommand { get; set; }
+        public ICommand NavigateToSettingCommand { get; set; }
 
-        public ObservableCollection<Livro> WishList { get; set; }
 
         public WishListViewModel()
         {
             navigationService = DependencyService.Get<INavigationService>();
             NavigateToMyBooksCommand = new Command(NavigateToMyBooks);
             NavigateToFavoritesCommand = new Command(NavigateToFavorites);
+            NavigateToSettingCommand = new Command(NavigateToSettings);
             WishList = new ObservableCollection<Livro>();
 
             for (int i = 0; i < 30; i++)
@@ -31,14 +33,10 @@ namespace myBooks.ViewModels
 
         }
 
-        private void NavigateToMyBooks()
-        {
-            navigationService.NavigateToMyBooks();
-        }
+        private void NavigateToMyBooks() => navigationService.NavigateToMyBooks();
 
-        private void NavigateToFavorites()
-        {
-            navigationService.NavigateToFavorites();
-        }
+        private void NavigateToFavorites() => navigationService.NavigateToFavorites();
+
+        private void NavigateToSettings() => navigationService.NavigateToSettings();
     }
 }
