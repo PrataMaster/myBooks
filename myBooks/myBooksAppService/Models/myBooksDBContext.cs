@@ -59,11 +59,11 @@ namespace myBooksAppService.Models
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.HasOne(d => d.Book)
-                    .WithOne(p => p.Livros)
-                    .HasForeignKey<Livros>(d => d.BookId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_livros_usuarios");
+                //entity.HasOne(d => d.Book)
+                //    .WithOne(p => p.Livros)
+                //    .HasForeignKey<Livros>(d => d.BookId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK_livros_usuarios");
             });
 
             modelBuilder.Entity<Usuarios>(entity =>

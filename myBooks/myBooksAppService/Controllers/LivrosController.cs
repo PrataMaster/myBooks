@@ -61,8 +61,9 @@ namespace myBooksAppService.Controllers
 
             _ = _context.Livros.Add(livro);
             _ = await _context.SaveChangesAsync();
-            /*Dar uma olhada nesse retorno bugado*/
-            return CreatedAtAction("Get Book", new { id = livro.BookId }, livro);
+
+            return CreatedAtAction
+                ( "GetBooks", new { livro.BookId, livro.BookImgName, livro.BookImgVb, livro.Title, livro.Year, livro.Genre, livro.Publisher, livro.UserId }, livro);
         }
 
         // PUT api/Livros/5
