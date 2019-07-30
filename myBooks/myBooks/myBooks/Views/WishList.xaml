@@ -33,28 +33,41 @@
             </Frame>
             <!--#endregion Header-->
             <Frame Padding="0" CornerRadius="2" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="Black">
-                <StackLayout Orientation="Horizontal" Padding="0">
-                    <local:MyButton Text="MyBooks" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToMyBooksCommand}"/>
-                    <local:MyButton Text="Desejos" Style="{StaticResource TabMenuButton}"/>
-                    <local:MyButton Text="Favoritos" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToFavoritesCommand}"/>
+                <StackLayout Orientation="Horizontal" Spacing="0">
+                    <StackLayout Orientation="Vertical">
+                        <local:MyButton Text="MyBooks" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToMyBooksCommand}"/>
+                        <BoxView Style="{StaticResource TabMenuBoxOff}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <local:MyButton Text="Desejos" Style="{StaticResource TabMenuButton}"/>
+                        <BoxView Style="{StaticResource TabMenuBoxOn}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <local:MyButton Text="Favoritos" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToFavoritesCommand}"/>
+                        <BoxView Style="{StaticResource TabMenuBoxOff}"/>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             <!--#endregion TabMenus-->
-            <Frame Padding="0" HorizontalOptions="FillAndExpand">
-                <ListView ItemsSource="{Binding WishList}"
-                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=280}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate >
-                            <ViewCell>
-                                <StackLayout>
-                                    <Label Text="{Binding Title}"/>
-                                    <Label Text="{Binding Genre}"/>
-                                    <Label Text="{Binding Year}"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+            <Frame Padding="0" HasShadow="False" HorizontalOptions="FillAndExpand">
+                <RelativeLayout>
+                    <ListView ItemsSource="{Binding WishList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="{Binding Title}"/>
+                                        <Label Text="{Binding Genre}"/>
+                                        <Label Text="{Binding Year}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ImageButton Source="AddButton.png" WidthRequest="48" BackgroundColor="Transparent" Command="{Binding NavigateToSettingCommand}"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=X, Constant=350}"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=350}"/>
+                </RelativeLayout>
             </Frame>
             <!--#endregion ListView-->
         </StackLayout>

@@ -33,10 +33,19 @@
             </Frame>
             <!--#endregion Header-->
             <Frame Padding="0" CornerRadius="2" HasShadow="False" HorizontalOptions="FillAndExpand" BorderColor="Black">
-                <StackLayout Orientation="Horizontal" Padding="0">
-                    <local:MyButton Text="MyBooks" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToMyBooksCommand}"/>
-                    <local:MyButton Text="Desejos" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToWishListCommand}"/>
-                    <local:MyButton Text="Favoritos" Style="{StaticResource TabMenuButton}"/>
+                <StackLayout Orientation="Horizontal" Spacing="0">
+                    <StackLayout Orientation="Vertical">
+                        <local:MyButton Text="MyBooks" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToMyBooksCommand}"/>
+                        <BoxView Style="{StaticResource TabMenuBoxOff}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <local:MyButton Text="Desejos" Style="{StaticResource TabMenuButton}" Command="{Binding NavigateToWishListCommand}"/>
+                        <BoxView Style="{StaticResource TabMenuBoxOff}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <local:MyButton Text="Favoritos" Style="{StaticResource TabMenuButton}"/>
+                        <BoxView Style="{StaticResource TabMenuBoxOn}"/>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             <!--#endregion TabMenus-->
@@ -44,7 +53,7 @@
                 <ListView ItemsSource="{Binding Favorites}"
                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Constant=280}">
                     <ListView.ItemTemplate>
-                        <DataTemplate >
+                        <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
                                     <Label Text="{Binding Title}"/>

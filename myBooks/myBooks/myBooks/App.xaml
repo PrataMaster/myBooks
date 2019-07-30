@@ -39,14 +39,6 @@
                 <Setter Property="BorderRadius" Value="5"/>
             </Style>
             <!--#endregion TabMenuButton MyBooks/WishList/Favs-->
-            <Style x:Key="TabMenuLabel" TargetType="Label">
-                <Setter Property="HorizontalTextAlignment" Value="Center"/>
-                <Setter Property="VerticalTextAlignment" Value="Center"/>
-                <Setter Property="Margin" Value="20,0,40,0"/>
-                <Setter Property="FontFamily" Value="serif"/>
-                <Setter Property="TextColor" Value="{StaticResource Indigo A700}"/>
-            </Style>
-            <!--#endregion TabMenuLabel MyBooks/WishList/Favs-->
 
             <Style x:Key="LinkButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Transparent"/>
@@ -63,6 +55,20 @@
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
             <!--#endregion TabBox Sign In/Up-->
+
+            <Style x:Key="TabMenuBoxOn" TargetType="BoxView">
+                <Setter Property="Color" Value="{StaticResource Indigo A200}"/>
+                <Setter Property="HeightRequest" Value="4"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <!--#endregion TabMenuBoxOn MyBooks/WishList/Favs-->
+
+            <Style x:Key="TabMenuBoxOff" TargetType="BoxView">
+                <Setter Property="Color" Value="{StaticResource Gray 400}"/>
+                <Setter Property="HeightRequest" Value="4"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <!--#endregion TabMenuBoxOff MyBooks/WishList/Favs-->
 
             <Style x:Key="HeaderBox" TargetType="BoxView">
                 <Setter Property="Color" Value="{StaticResource Indigo A700}"/>
