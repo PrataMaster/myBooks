@@ -37,7 +37,7 @@ namespace myBooks.Droid.CustomRenderer
 
         private void TabMenuOff(Android.Widget.Button Control)
         {
-            Control.SetWidth(346);
+            Control.SetWidth(358);
             Control.SetAllCaps(false);
         }
     }
