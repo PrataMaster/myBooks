@@ -28,6 +28,7 @@ namespace myBooksAppService
         public void ConfigureServices(IServiceCollection services)
         {
             string ConnectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.Configure<IISServerOptions>(options => options.AutomaticAuthentication = false);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<MyBooksDBContext>(options => options.UseSqlServer(ConnectionString));
         }

@@ -22,21 +22,17 @@ namespace myBooksAppService.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-PQH5FD0;Database=myBooksDB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-PQH5FD0\\SQLEXPRESS;Database=MyBooksDB;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
+            modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
             modelBuilder.Entity<Livros>(entity =>
             {
                 entity.HasKey(e => e.BookId);
-
-                entity.ToTable("livros");
-
-                entity.Property(e => e.BookId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.BookImgName)
                     .IsRequired()
@@ -49,28 +45,26 @@ namespace myBooksAppService.Models
 
                 entity.Property(e => e.Genre)
                     .IsRequired()
-                    .HasMaxLength(20);
+                    .HasMaxLength(75);
 
                 entity.Property(e => e.Publisher)
                     .IsRequired()
-                    .HasMaxLength(10);
+                    .HasMaxLength(75);
 
                 entity.Property(e => e.Title)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(100);
 
-                //entity.HasOne(d => d.Book)
-                //    .WithOne(p => p.Livros)
-                //    .HasForeignKey<Livros>(d => d.BookId)
-                //    .OnDelete(DeleteBehavior.ClientSetNull)
-                //    .HasConstraintName("FK_livros_usuarios");
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Livros)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Livros_Usuarios");
             });
 
             modelBuilder.Entity<Usuarios>(entity =>
             {
                 entity.HasKey(e => e.UserId);
-
-                entity.ToTable("usuarios");
 
                 entity.Property(e => e.Email)
                     .IsRequired()

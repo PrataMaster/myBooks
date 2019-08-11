@@ -16,6 +16,6 @@ namespace myBooksAppService.Models
         public bool Wishlist { get; set; }
         public short UserId { get; set; }
 
-        //public virtual Usuarios Book { get; set; }
+        public virtual Usuarios User { get; set; }
     }
 }
